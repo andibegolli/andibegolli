@@ -1,0 +1,21 @@
+; Define the file where results are stored.
+
+StorageFile test.store
+
+PostScriptFile test.ps
+
+; Define the file for the printed output.
+
+OutputFile test.out
+
+set plotsperpage 1
+
+select time 0.5 10 50 
+
+plot temperature hydraulic 1
+
+select x
+
+plot htc hydraulic 1
+
+stop

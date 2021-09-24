@@ -1,0 +1,68 @@
+; Define the file where results are stored.
+
+StorageFile tf.store
+
+; Define the file for PostScript(R) output.
+
+PostScriptFile tf.ps
+
+; Define the file for the printed output.
+
+OutputFile tf.out
+
+; The number of plots per page can be set to 1, 2, 3, 4 or 6
+
+set plotsperpage 1
+
+; Select the results of the simulation at the times closest to those below.
+; All following plots are as f(x), the selected times are parameters.
+
+select time 0.05 0.1 0.3 0.5 1.0 200.0 
+
+; Plot various quantities as f(x) selecting the quantity first, the 
+; component next.
+
+plot pressure hydraulic 1
+plot temperature hydraulic 1
+plot velocity hydraulic 1
+plot massflow hydraulic 1
+
+; Reselect times, this replaces previous selection.
+
+select time 0.5 1.0 1.5 2.0 100.0 200.0
+
+; Plot quantities as f(x).
+
+plot temperature hydraulic 1
+plot velocity hydraulic 1
+
+; Plot now parametrically one variables versus a second variable
+
+plot pressure hydraulic 1 vs temperature hydraulic 1
+plot htc hydraulic 1 vs reynoldsnr hydraulic 1
+
+; Select the results of the simulation at the points with coordinate x 
+; closest to those below. All following plots are as a f(t), the selected 
+; x are parameters.
+
+select x 1 3 5 7 10
+
+; Plot various quantities as f(t) selecting the quantity first, the 
+; component next.
+
+set plotsperpage 1
+
+;plot pressure hydraulic 1
+plot temperature hydraulic 1
+;plot velocity hydraulic 1
+;plot htc hydraulic 1
+;plot massflow hydraulic 1
+
+; Produce a printout of the heater outlet temperature as a function of time.
+
+;select x 10
+;print temperature hydraulic 1
+
+; The stop command terminates parsing, the post-processing session is finished.
+
+stop
